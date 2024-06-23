@@ -3,7 +3,6 @@ async function getData(){
   let osResult = await axios.get("http://localhost:3000/api/orderStatuses");
   statuses = osResult.data;
 
-  let oResult = await axios.get("http://localhost:3000/api/orders");
   return oResult.data.map( o => {
     return {
         ...o,
