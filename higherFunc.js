@@ -15,9 +15,12 @@ const validateRange = function (min, max){
       }
       return true;
    }
+
+   //return inner function that has access to min and max arguments
    return returnFunc;
 }
 
-var employee = {};
-employee.id = getInput(101, validateRange(50, 100));
-console.log(employee.id);
+const vr = validateRange(50,100);
+console.log(vr);
+const a = getInput(75, vr);
+console.log(a);

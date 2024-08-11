@@ -28,3 +28,7 @@ function getMultiplePayloads(){
   });
 }
 
+getMultiplePayloads();
+
+
+

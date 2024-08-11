@@ -7,6 +7,7 @@ function test() {
           Object.entries(o).forEach(([key,value]) => {
             console.log(`${key}: ${value}`);
           });
+          console.log('----------');
       });    
     }).catch((err) => {
       console.log(err);

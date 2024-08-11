@@ -4,7 +4,7 @@ const myObj = {
 Object.keys(myObj).forEach((key) => {
     console.log(key);
 })
-
+console.log('---------');
 for (const [key, value] of Object.entries(myObj)){
   console.log(`${key} - ${value}`);
 }
