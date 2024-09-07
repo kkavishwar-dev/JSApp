@@ -1,8 +1,7 @@
+const cc = function(init) {
+  var counter = init ? init : 0;
 
-const cc = function() {
-  var counter = 0;
-
-  const ic = function() {
+  const ic = () => {
     console.log(`in inner function ${counter}`);
     return counter++;
   }
