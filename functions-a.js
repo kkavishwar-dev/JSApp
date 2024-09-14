@@ -1,11 +1,11 @@
 import fs from "node:fs/promises";
-import { resolve } from "node:path";
 
 function timeDelay(ms){
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 const readFromFile = async function(){
+  await timeDelay(3000).then(() => console.log(`readFromFile - data retrieved`));
   const data = await fs.readFile('./data.json', 'utf-8');
   return data;
 };
