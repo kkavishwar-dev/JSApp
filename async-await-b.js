@@ -11,7 +11,8 @@ async function processData() {
     const pArr = JSON.parse(data);
     const per = pArr.filter((person) => person.lastName === "Carney");
     console.log(JSON.stringify(per));
+    console.log(`completed processing`);
 }
 
 processData();
-console.log(`completed processing`);
+

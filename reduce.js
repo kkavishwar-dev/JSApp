@@ -16,10 +16,9 @@ for(const [key, value] of Object.entries(countedNames)){
 function getTotalSR() {
   readFromFile().then((res) => {
     let empArray = JSON.parse(res);
-
     const totalSR = empArray.reduce(
       (total, emp) => total + emp.starRating, 0);
-
+      
       console.log(`TotalStarRating ${totalSR}`);
   });
 };

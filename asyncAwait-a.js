@@ -3,7 +3,7 @@ async function getData(){
   let osResult = await axios.get("http://localhost:3000/api/orderStatuses");
   statuses = osResult.data;
 
-  return oResult.data.map( o => {
+  return osResult.data.map( o => {
     return {
         ...o,
         orderStatus: statuses.find((d) => d.id === o.orderStatusId).description,
