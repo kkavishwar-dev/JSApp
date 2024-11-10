@@ -21,6 +21,6 @@ function getTotalSR() {
       
       console.log(`TotalStarRating ${totalSR}`);
   });
-};
+}
 
 getTotalSR();

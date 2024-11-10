@@ -15,9 +15,10 @@ console.log(containsAny);
 
 const object1 = {a: 1,  b: 2,};
 const object2 = {b: 4, c: 5,};
-const object3 = Object.assign(object1, object2);
+const object3 = Object.assign({}, object1, object2);
 object3.d = 100;
 
 console.log(object1);
 console.log(object2);
+console.log(object3);
 console.log(object3 === object1);

@@ -1,4 +1,4 @@
-const isValidAddress = true;
+const isValidAddress = false;
 
 const deliverPackage = new Promise((resolve, reject) => {
   const itemOrdered = {

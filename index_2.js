@@ -5,7 +5,7 @@ function test() {
       let emps = JSON.parse(result);
       emps.forEach(o => {
           Object.entries(o).forEach(([key,value]) => {
-            console.log(`${key}: ${value}`);
+            if (key === "email") console.log(`${key}: ${value}`);
           });
           console.log('----------');
       });    
