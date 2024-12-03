@@ -9,6 +9,6 @@ const addNumber = (numToAdd) => {
     }
 }
 
-const addNum = addNumber();
+const addNum = addNumber(500);
 console.log(addNum);
 console.log(myArray.map(addNum));
