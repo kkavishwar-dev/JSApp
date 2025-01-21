@@ -2,7 +2,7 @@ const myArray = [{
   id: 1, title: 'Book title 1-'}, {  id: 2, title: 'Book title 2-'}, {  id: 3, title: 'Book title 3-'}];
 
   const book = { id: 2, title: 'Book title 2-' };
-  console.log('is book included -' + myArray.includes(book));
+  console.log('is book included - ' + myArray.includes(book));
 
   const book2 = { id: 4, title: 'Book title 4-' };
   myArray.push(book2);

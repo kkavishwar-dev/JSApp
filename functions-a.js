@@ -5,7 +5,7 @@ function timeDelay(ms){
 }
 
 const readFromFile = async function(){
-  await timeDelay(3000).then(() => console.log(`readFromFile - data retrieved`));
+  await timeDelay(2000);
   return await fs.readFile('./data.json', 'utf-8');
 };
 

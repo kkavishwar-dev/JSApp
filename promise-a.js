@@ -1,8 +1,8 @@
 //Example of creating a Promise
-const createPromise = function(){
+const createPromise = () => {
   return new Promise((resolve) => {
       setTimeout(() => {
-        resolve("timeout");
+        resolve({id: 1, name: 'Jim Cooper', dob: '05/10/1970'});
       }, 2000);
   });
 }

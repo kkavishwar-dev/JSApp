@@ -1,5 +1,4 @@
-const getInput = function(inputVal, validator)
-{
+const getInput = function(inputVal, validator){
   if(validator){
     if(validator(inputVal)){
       return inputVal;
@@ -15,7 +14,6 @@ const validateRange = function (min, max){
       }
       return true;
    }
-
    //return inner function that has access to min and max arguments
    return returnFunc;
 }

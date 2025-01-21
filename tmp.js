@@ -7,6 +7,8 @@ const r = [
   { "id": 16, "name": "Recip_2", "type": "RECIP", },/**/
 ];
 
+const tmp = r.filter(p => (p.type !== "PART" && p.type !== "RECIP"));
+tmp.forEach(p => console.log(p));
 
 for (const p of r) {
   if (p.type !== "PART" && p.type !== "RECIP") {

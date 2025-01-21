@@ -18,7 +18,7 @@ const deliverPackage = new Promise((resolve, reject) => {
 });
 
 console.log(deliverPackage);
-const isShippmentReceived = () => {
+const isShipmentReceived = () => {
   deliverPackage
     .then(res => {
       console.log(res);
@@ -30,4 +30,4 @@ const isShippmentReceived = () => {
   });
 };
 
-isShippmentReceived();
+isShipmentReceived();

@@ -1,6 +1,7 @@
 function sumAll (...nums){
-  let sum = 0;
-  nums.forEach((num) => (sum += num));
+  //let sum = 0;
+  //nums.forEach((num) => (sum += num));
+  const sum = nums.reduce((total, currentVal) => total + currentVal, 0);
   return sum;
 }
 
@@ -12,4 +13,5 @@ const logTime = function() {
   console.log(`current time ${new Date().toLocaleString()}`)
 }
 
-setInterval(logTime, 2000);
+setTimeout(logTime, 2000);
+//setInterval(logTime, 2000);

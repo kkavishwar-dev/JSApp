@@ -17,10 +17,13 @@ const setVal = (msg, isRes) => {
 
 retPromise.then((val) => {
     console.log(val);
+    console.log(retPromise);
 }).catch((err) => {
     console.log(err);
+    console.log(retPromise);
 }).finally(() => {
     console.log("Done");
 });
+
 
 setVal("ok - proceed", true);
