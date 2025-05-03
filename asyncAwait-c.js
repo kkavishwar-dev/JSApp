@@ -20,7 +20,7 @@ async function fetchUsers() {
     //         console.log(error);
     //     }
     // }
-    console.log("in fetchUsers");    
+    console.log("completed fetchUsers");    
 };
 
 async function fetchUserById(id) {
