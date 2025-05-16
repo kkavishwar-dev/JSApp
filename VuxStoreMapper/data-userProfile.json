@@ -76,7 +76,7 @@
       "contacts": {
         "country": "USA",
         "countryCd": "38",
-        "tmps": [
+        "phoneNums": [
           {
             "type": "home",
             "value": "555-1234"

@@ -1,11 +1,11 @@
 /**
  * Dynamically generates a strongly typed mapper Objects from a JSON object.
  * @param {Object} json The JSON object to generate the mapper Objects from.
- * @param {string} mapFileName The name of the mapper file.
+ * @param {string} objName The name of the object in the generated mapper.
 */
 
 const fcCollection = new Map();
-function generateMapper(json, mapFileName) {
+function generateMapper(json, objName) {
   const getTypeVal = (value) => {
     switch (typeof value) {
       case 'string':
@@ -43,33 +43,33 @@ function generateMapper(json, mapFileName) {
 
   const fields = generateFields(json);
 
-  if(!fcCollection.has(mapFileName)){
+  if(!fcCollection.has(objName)){
     const data = `return {\n${fields.replace(/\nundefined/g, '')}\n}`;
-    fcCollection.set(mapFileName, data);
+    fcCollection.set(objName, data);
   }
 }
 
 // Example usage:
 import fs from 'node:fs';
-//TODO - user input the path to the JSON file - file name
+//A - TODO - user input the path to the JSON file - file name
 import jsonData from '../VuxStoreMapper/data-userProfile.json' with { type: 'json' };
 //import jsonData from '../VuxStoreMapper/data-Auto.json' with { type: 'json' };
 
-//TODO - user input the name of the default export object
+//B - TODO - user input the name of the default export object
 const defExport = 'userProfile';
-//const defExport = 'fnolAutoObj';
+//const defExport = 'fnolAuto';
 if (Array.isArray(jsonData)) {
   generateMapper(jsonData[0], defExport);
 } else {
   generateMapper(jsonData, defExport);
 }
 
-console.log(fcCollection);
-let i = 0;
-//TODO - user input the name of the file to be created
+//C - TODO - user input the name of the file to be created
 const fileName = 'userProfile.js';
 //const fileName = 'fnolAuto.js';
+
 let keyName = '';
+let i = 0;
 fcCollection.forEach((value, key) => {
     i++;
     if(i === 1){
@@ -81,7 +81,6 @@ fcCollection.forEach((value, key) => {
 });
 
 const exportName = defExport ? defExport + 'Obj': keyName + 'Obj';
-//fs.appendFileSync(`./${fileName}`, `\n\nconst ${exportName} = ${keyName}();`, 'utf-8');
 fs.appendFileSync(`./${fileName}`, `\n\nconst ${exportName} = function(){\n return ${keyName}();}`, 'utf-8');
 fs.appendFileSync(`./${fileName}`, `\n\nexport default { ${exportName} };`, 'utf-8');
 
