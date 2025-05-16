@@ -30,6 +30,15 @@ const fullPaths = getFullPaths(fnolAuto);
 const statePaths = [];
 
 //TODO - create Store getters and setters for each path
+
+fullPaths.forEach((path) => {
+  const pathParts = path.split('.');
+  const lastPart = pathParts.pop(); // Remove the last part
+  const newPath = pathParts.join('.') + '.' + lastPart.charAt(0).toUpperCase() + lastPart.slice(1); // Capitalize the last part
+  statePaths.push(newPath);
+});
+
+
 //TODO - read file and replace contents with the new getters and setters
 fullPaths.forEach((path) => {
   const pathParts = path.split('.');

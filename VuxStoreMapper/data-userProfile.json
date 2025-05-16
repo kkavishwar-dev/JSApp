@@ -4,6 +4,60 @@
     "fullName": "John Doe",
     "age": 30,
     "location": "Cityville",
+    "eligibleFromParticipants": [
+      {
+        "displayName": "JohnD",
+        "groupId": "2",
+        "indicators": {
+          "accountType": "IRA",
+          "subAccountType": "ROTH"
+        },
+        "retirementData": {
+          "planName": "401k",
+          "planType": "Employer-Sponsored",
+          "contributionRate": 5.0,
+          "employerMatch": 3.0
+        },
+        "transferDetails": [
+          {
+            "frequencyType": "Scheduled",
+            "accountLimit": [
+              {
+                "type": "monthly",
+                "amount": 500.0
+              },
+              {
+                "type": "yearly",
+                "amount": 6000.0
+              }
+            ],
+            "preDisclaimerCodes": "190",
+            "postDisclaimerCodes": "200",
+            "disclaimerText": "Please review the terms and conditions before proceeding."
+          },    
+          {
+            "frequencyType": "Immediate",
+            "accountLimit": [
+              {
+                "type": "monthly",
+                "amount": 500.0
+              },
+              {
+                "type": "yearly",
+                "amount": 6000.0
+              }
+            ],
+            "preDisclaimerCodes": "160",
+            "postDisclaimerCodes": "",
+            "disclaimerText": "Please review the terms and conditions before proceeding."            
+          }
+        ],
+        "accountType": "Brokerage",
+        "accountNumber": "1234567890",
+        "accountName": "Investment Account",
+        "accountBalance": 15000.0
+      }
+    ],
     "interests": [
       {
         "name": "Reading",

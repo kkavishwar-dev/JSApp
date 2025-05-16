@@ -29,11 +29,11 @@ function generateMapper(json, mapFileName) {
     return Object.entries(obj)
       .map(([key, value]) => {
         if (typeof value === 'object' && !Array.isArray(value) && value != null) {
-          const nestedName = `${key.charAt(0).toLowerCase() + key.slice(1)}`;
-          return `     ${nestedName}: ${nestedName}(),\n${generateMapper(value, nestedName)}`;
+          const nestedName = `${key.charAt(0).toLowerCase() + key.slice(1) + 'Obj'}`;
+          return `     ${key}: ${nestedName}(),\n${generateMapper(value, nestedName)}`;
         }
         if (typeof value === 'object' && Array.isArray(value) && value != null) {
-          const nestedName = `${key.charAt(0).toLowerCase() + key.slice(1, key.length - 1)}`;
+          const nestedName = `${key.charAt(0).toLowerCase() + key.slice(1) + 'Obj'}`;
           return `    ${key}: [${nestedName}()],\n${generateMapper(value[0], nestedName)}`;
         }
         return `       ${key}: ${getTypeVal(value)},`;
@@ -52,12 +52,12 @@ function generateMapper(json, mapFileName) {
 // Example usage:
 import fs from 'node:fs';
 //TODO - user input the path to the JSON file - file name
-//import jsonData from '../data-userProfile.json' with { type: 'json' };
-import jsonData from '../data-Auto.json' with { type: 'json' };
+import jsonData from '../VuxStoreMapper/data-userProfile.json' with { type: 'json' };
+//import jsonData from '../VuxStoreMapper/data-Auto.json' with { type: 'json' };
 
 //TODO - user input the name of the default export object
-//const defExport = 'userProfile';
-const defExport = 'fnolAutoObj';
+const defExport = 'userProfile';
+//const defExport = 'fnolAutoObj';
 if (Array.isArray(jsonData)) {
   generateMapper(jsonData[0], defExport);
 } else {
@@ -67,8 +67,8 @@ if (Array.isArray(jsonData)) {
 console.log(fcCollection);
 let i = 0;
 //TODO - user input the name of the file to be created
-//const fileName = 'userProfile.js';
-const fileName = 'fnolAuto.js';
+const fileName = 'userProfile.js';
+//const fileName = 'fnolAuto.js';
 let keyName = '';
 fcCollection.forEach((value, key) => {
     i++;
@@ -81,7 +81,8 @@ fcCollection.forEach((value, key) => {
 });
 
 const exportName = defExport ? defExport + 'Obj': keyName + 'Obj';
-fs.appendFileSync(`./${fileName}`, `\n\nconst ${exportName} = ${keyName}();`, 'utf-8');
+//fs.appendFileSync(`./${fileName}`, `\n\nconst ${exportName} = ${keyName}();`, 'utf-8');
+fs.appendFileSync(`./${fileName}`, `\n\nconst ${exportName} = function(){\n return ${keyName}();}`, 'utf-8');
 fs.appendFileSync(`./${fileName}`, `\n\nexport default { ${exportName} };`, 'utf-8');
 
 console.log('mapper file created successfully!');
