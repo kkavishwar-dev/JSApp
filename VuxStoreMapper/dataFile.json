@@ -1,0 +1,123 @@
+  {
+    "userProfile": {
+      "username": "user123",
+      "email": "user@example.com",
+      "fullName": "John Doe",
+      "age": 30,
+      "location": "Cityville",
+      "eligibleFromAccounts": [
+        {
+          "displayName": "JohnD",
+          "groupId": "2",
+          "indicators": {
+            "accountType": "IRA",
+            "subAccountType": "ROTH"
+          },
+          "retirementData": {
+            "planName": "401k",
+            "planType": "Employer-Sponsored",
+            "contributionRate": 5.0,
+            "employerMatch": 3.0
+          },
+          "transferDetails": [
+            {
+              "frequencyType": "Scheduled",
+              "accountLimit": [
+                {
+                  "type": "monthly",
+                  "amount": 500.0
+                },
+                {
+                  "type": "yearly",
+                  "amount": 6000.0
+                }
+              ],
+              "preDisclaimerCodes": "190",
+              "postDisclaimerCodes": "200",
+              "disclaimerText": "Please review the terms and conditions before proceeding."
+            },
+            {
+              "frequencyType": "Immediate",
+              "accountLimit": [
+                {
+                  "type": "monthly",
+                  "amount": 500.0
+                },
+                {
+                  "type": "yearly",
+                  "amount": 6000.0
+                }
+              ],
+              "preDisclaimerCodes": "160",
+              "postDisclaimerCodes": "",
+              "disclaimerText": "Please review the terms and conditions before proceeding."
+            }
+          ],
+          "accountType": "Brokerage",
+          "accountNumber": "1234567890",
+          "accountName": "Investment Account",
+          "accountBalance": 15000.0
+        }
+      ],
+      "interests": [
+        {
+          "name": "Reading",
+          "category": "Books"
+        },
+        {
+          "name": "Hiking",
+          "category": "Outdoors"
+        }
+      ],
+      "address": {
+        "street": "123 Main St",
+        "city": "Cityville",
+        "state": "CA",
+        "zip": "12345",
+        "contacts": {
+          "country": "USA",
+          "countryCd": "38",
+          "phoneNums": [
+            {
+              "type": "home",
+              "value": "555-1234"
+            },
+            {
+              "type": "work",
+              "value": "555-5678"
+            }
+          ]
+        },
+        "coordinates": {
+          "latitude": 37.7749,
+          "longitude": -122.4194
+        }
+      },
+      "isSubscribed": true,
+      "lastLogin": "2025-05-01T10:30:00Z"
+    },
+    "stateList": [
+      {
+        "state": "CA",
+        "stateCd": "06",
+        "countryCd": "38",
+        "country": "USA"
+      },
+      {
+        "state": "NY",
+        "stateCd": "36",
+        "countryCd": "38",
+        "country": "USA"
+      }
+    ],
+    "countryList": [
+      {
+        "country": "USA",
+        "countryCd": "38"
+      },
+      {
+        "country": "Canada",
+        "countryCd": "124"
+      }
+    ]
+  }

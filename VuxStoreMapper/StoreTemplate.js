@@ -1,31 +1,26 @@
 //import Dime
 //import utils
-//TODO - import created dataMapping file
-import mapperFile from "../userProfile.js";
+import mapperFile from './genMapper.js'; // Path to the generated mapper file
 
-const {userProfileObj} = mapperFile;
+const { defRootObj } = mapperFile;
 //const {} = Dime
 //const {} = getAxiosConfig("your apiKey");
 
 export default {
-  state: userProfileObj(),
+  state: defRootObj(),
   getters: {
     "TODO": "REPLACE_GETTERS_SECTION",
-    
+
   },
   mutations: {
     "TODO": "REPLACE_MUTATIONS_SECTION",
 
-    RESET_STATE: (state) => { 
-      // Reset the state to its initial value
-      state = userProfileObj();  
-    },    
   },
   actions: {
     // Example action to reset the state
     resetState({ commit }) {
       commit("RESET_STATE");
     },
-    
+
   }
 }

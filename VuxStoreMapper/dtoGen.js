@@ -51,37 +51,37 @@ function generateMapper(json, objName) {
 
 // Example usage:
 import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { dirname } from 'node:path';
 //A - TODO - user input the path to the JSON file - file name
-import jsonData from '../VuxStoreMapper/data-userProfile.json' with { type: 'json' };
-//import jsonData from '../VuxStoreMapper/data-Auto.json' with { type: 'json' };
+import jsonData from '../VuxStoreMapper/dataFile.json' with { type: 'json' };
 
-//B - TODO - user input the name of the default export object
-const defExport = 'userProfile';
-//const defExport = 'fnolAuto';
+const defExport = 'defRoot';
 if (Array.isArray(jsonData)) {
   generateMapper(jsonData[0], defExport);
 } else {
   generateMapper(jsonData, defExport);
 }
 
-//C - TODO - user input the name of the file to be created
-const fileName = 'userProfile.js';
-//const fileName = 'fnolAuto.js';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename); 
+const updatedFilePath = path.resolve(__dirname, './genMapper.js');
 
 let keyName = '';
 let i = 0;
 fcCollection.forEach((value, key) => {
     i++;
     if(i === 1){
-      fs.writeFileSync(`./${fileName}`, `const ${key} = function(){\n${value}\n}`, 'utf-8');
+      fs.writeFileSync(updatedFilePath, `const ${key} = function(){\n${value}\n}`, 'utf-8');
     } else {
-      fs.appendFileSync(`./${fileName}`, `\n\nconst ${key} = function(){\n${value}\n}`, 'utf-8');
+      fs.appendFileSync(updatedFilePath, `\n\nconst ${key} = function(){\n${value}\n}`, 'utf-8');
     }
      keyName = key;
 });
 
 const exportName = defExport ? defExport + 'Obj': keyName + 'Obj';
-fs.appendFileSync(`./${fileName}`, `\n\nconst ${exportName} = function(){\n return ${keyName}();}`, 'utf-8');
-fs.appendFileSync(`./${fileName}`, `\n\nexport default { ${exportName} };`, 'utf-8');
+fs.appendFileSync(updatedFilePath, `\n\nconst ${exportName} = function(){\n return ${keyName}();}`, 'utf-8');
+fs.appendFileSync(updatedFilePath, `\n\nexport default { ${exportName} };`, 'utf-8');
 
-console.log('mapper file created successfully!');
+console.log(`${updatedFilePath} created successfully!`);
